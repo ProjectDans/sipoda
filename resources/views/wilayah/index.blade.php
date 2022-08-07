@@ -1,0 +1,71 @@
+@extends('layouts.dashboard')
+
+@section('content')
+<br/>
+@if (Session::has('success'))
+<div class="alert alert-success alert-dismissible fade show">
+  <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+    <i class="nc-icon nc-simple-remove"></i>
+  </button>
+  <span>{{ Session::get('success') }}</span>
+</div>
+@endif
+<a class="btn btn-info" href="{{ url('wilayah/create') }}">Buat Data Wilayah Baru</a>
+<br/>
+<form method="GET" action="{{ url('wilayah') }}">
+  <div class="input-group">
+    <input type="text" name="keyword" value="" class="form-control" placeholder="Search...">
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <button class="btn btn-sm btn-grey" type="submit">Search</button>
+      </div>
+    </div>
+  </div>
+</form>
+<div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title"> Tabel Data Wilayah</h4>
+              </div>
+              <div class="card-body">
+                <div class="table table-hover">
+                  <table class="table">
+                    <thead class=" text-primary">
+                        <th class="text-center">No</th>
+                        <th class="text-center">Nama Tempat</th>
+                        <th class="text-center">Kecamatan</th>
+                        <th class="text-center">Kelurahan</th>
+                        <th class="text-center" colspan="2">Action</th></th>
+                    </thead>
+                    <tbody>
+                        @php
+                            $no = 1;
+                        @endphp
+                        @foreach ($datas as $key=>$value)
+                        <tr class="text-center">                            
+                          <td>{{$no++}}</td>        
+                          <td>{{$value->wilayah}}</td>     
+                          <td>{{$value->nm_kecamatan}}</td>     
+                          <td>{{$value->nm_kelurahan}}</td>     
+                          <td><a href="{{ url('wilayah/'.$value->id.'/edit') }}" class="btn btn-sm btn-warning">Edit</a></td>
+                          <td>
+                              <form action="" method="POST">
+                                  @csrf
+                                  <input type="hidden" name="_method" value="DELETE">
+                                  <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                  </table>
+                  {{-- {{ $datas->links('pagination::bootstrap-4') }} --}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+@endsection
