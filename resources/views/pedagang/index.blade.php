@@ -35,10 +35,8 @@
                     <thead class=" text-primary">
                         <th class="text-center">Nama Pemilik Dagangan</th>
                         <th class="text-center">Jenis Kelamin</th>
-                        <th class="text-center">Agama</th>
                         <th class="text-center">No. Telepon</th>
                         <th class="text-center">NIK</th>
-                        <th class="text-center">Status Nikah</th>
                         <th class="text-center">Alamat</th>
                         <th class="text-center">Tempat Usaha</th>
                         <th class="text-center" colspan="2">Action</th></th>
@@ -48,10 +46,8 @@
                       <tr class="text-center">
                         <td>{{ $item->nm_pedagang }}</td>
                         <td>{{ $item->gender_pedagang }}</td>
-                        <td>{{ $item->agama_pedagang }}</td>
                         <td>{{ $item->no_tlp_pedagang }}</td>
                         <td>{{ $item->nik_pedagang }}</td>
-                        <td>{{ $item->status_nikah_pedagang }}</td>
                         <td>{{ $item->alamat_pedagang }}</td>
                         <td>{{ $item->wilayah->wilayah }}</td>
                         <td><a href="{{ url('pedagang/'.$item->id.'/edit') }}" class="btn btn-sm btn-warning">Edit</a></td>
@@ -73,4 +69,8 @@
           </div>
         </div>
       </div>
+      <br>
+      <br>
+      <br>
+      <br>
 @endsection

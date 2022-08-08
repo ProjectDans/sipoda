@@ -10,7 +10,7 @@
           </div>
           <div class="card-body">
             <form method="POST" action="{{ url('karyawan') }}">
-                @csrf
+              @csrf
                 <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">

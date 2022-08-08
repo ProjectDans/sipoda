@@ -22,10 +22,8 @@ return new class extends Migration
             $table->string('nik_pedagang');
             $table->string('status_nikah_pedagang');
             $table->string('alamat_pedagang');
-            $table->string('nm_tempat_id');
             $table->string('nm_usaha');
             $table->string('alat_usaha');
-            $table->string('wilayah_usaha');
             $table->timestamps();
         });
     }

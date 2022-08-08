@@ -63,12 +63,12 @@
               <p>Penempatan Wilayah</p>
             </a>
           </li>
-          <li>
+          {{-- <li>
             <a href="{{ url('pegawai') }}">
               <i class="nc-icon nc-bell-55"></i>
               <p>Data Pegawai</p>
             </a>
-          </li>
+          </li> --}}
           <li>
             <a href="{{ url('jabatan') }}">
               <i class="nc-icon nc-bell-55"></i>

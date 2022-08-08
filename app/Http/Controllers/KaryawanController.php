@@ -17,11 +17,11 @@ class KaryawanController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->keyword;
-        // $datas = Karyawan::all();
-        $datas = Karyawan::with('jabatan')->where('nm_karyawan', 'LIKE', '%'.$keyword.'%')
-        ->orWhere('nik_karyawan', 'LIKE', '%'.$keyword.'%')
-        ->orWhere('jabatan_karyawan', 'LIKE', '%'.$keyword.'%')
-        ->paginate(4);
+        $datas = Karyawan::with('jabatan')->paginate(10);
+        // $datas = Karyawan::with('jabatan')->where('nm_karyawan', 'LIKE', '%'.$keyword.'%')
+        // ->orWhere('nik_karyawan', 'LIKE', '%'.$keyword.'%')
+        // ->orWhere('jabatan_karyawan', 'LIKE', '%'.$keyword.'%')
+        // ->paginate(4);
         return view('karyawan.index', compact(
             'datas', 'keyword'
         ));
@@ -54,7 +54,7 @@ class KaryawanController extends Controller
         $model->nik_karyawan = $request->nik_karyawan;
         $model->no_tlp_karyawan = $request->no_tlp_karyawan;
         $model->email_karyawan = $request->email_karyawan;
-        $model->jabatan_karyawan = $request->jabatan_karyawan;
+        $model->jabatan_id = $request->jabatan_id;
         $model->save();
 
         return redirect('karyawan')->with('success', 'Data berhasil ditambahkan');

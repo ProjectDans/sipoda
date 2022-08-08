@@ -27,7 +27,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title"> Tabel Data Pedagang IPKL</h4><br>
+                <h4 class="card-title"> Tabel Data Karyawan</h4><br>
                 <p>Halaman ini melampirkan seluruh data karyawan yang bekerja pada organisasi IPKL</p>
               </div>
               <div class="card-body">

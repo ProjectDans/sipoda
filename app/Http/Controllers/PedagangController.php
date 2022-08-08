@@ -20,7 +20,7 @@ class PedagangController extends Controller
         // $dd = Pedagang::count();
         // return dd($dd);
 
-        $datas = Pedagang::with('wilayah')->paginate(4);
+        $datas = Pedagang::with('wilayah')->paginate(10);
         // $datas = Pedagang::where('nm_pedagang', 'LIKE', '%'.$keyword.'%')
         //     ->orWhere('nik_pedagang', 'LIKE', '%'.$keyword.'%')
         //     ->orWhere('nm_usaha', 'LIKE', '%'.$keyword.'%')
@@ -64,7 +64,7 @@ class PedagangController extends Controller
         $model->alamat_pedagang = $request->alamat_pedagang;
         $model->nm_usaha = $request->nm_usaha;
         $model->alat_usaha = $request->alat_usaha;
-        $model->wilayah_usaha = $request->wilayah_usaha;
+        $model->wilayah_id = $request->wilayah_id;
         $model->save();
 
         return redirect('pedagang')->with('success', 'Data berhasil ditambahkan');
@@ -114,7 +114,7 @@ class PedagangController extends Controller
         $model->alamat_pedagang = $request->alamat_pedagang;
         $model->nm_usaha = $request->nm_usaha;
         $model->alat_usaha = $request->alat_usaha;
-        $model->wilayah_usaha = $request->wilayah_usaha;
+        $model->wilayah_id = $request->wilayah_id;
         $model->save();
 
         return redirect('pedagang')->with('success', 'Data berhasil di update');

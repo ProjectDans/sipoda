@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('wilayah', function (Blueprint $table) {
-            $table->id();
-            $table->string('nm_kelurahan');
-            $table->string('nm_kecamatan');
-            $table->timestamps();
+        Schema::table('pedagang', function (Blueprint $table) {
+            $table->integer('wilayah_id');
         });
     }
 
@@ -28,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('pedagang', function (Blueprint $table) {
+            //
+        });
     }
 };
