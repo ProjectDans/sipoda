@@ -6,7 +6,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Form Tambah Data Karyawan</h4>
+            <h4 class="card-title">Tambah Data Karyawan</h4>
           </div>
           <div class="card-body">
             <form method="POST" action="{{ url('karyawan') }}">
@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>Nama Lengkap</label>
+                        <label>Masukkan Nama Lengkap</label>
                        <input type="text" name="nm_karyawan" class="form-control" value="{{old('nm_karyawan')}}" placeholder="nama lengkap">
                        @foreach($errors->get('nm_karyawan') as $msg)
                        <p class="text-danger">{{$msg}}</p>
