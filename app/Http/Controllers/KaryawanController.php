@@ -34,8 +34,8 @@ class KaryawanController extends Controller
      */
     public function create()
     {
-        $model = new Karyawan;
         $jabatan = Jabatan::all();
+        $model = new Karyawan;
         return view('karyawan.create', compact(
             'model', 'jabatan'
         ));
