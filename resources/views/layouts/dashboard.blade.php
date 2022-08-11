@@ -18,6 +18,8 @@
   <link href="{{ asset('assets/css/paper-dashboard.css?v=2.0.1') }}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{ asset('assets/demo/demo.css') }}" rel="stylesheet" />
+  <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </head>
 
 <body class="">
@@ -45,7 +47,7 @@
               <p>Dashboard</p>
             </a>
           </li>
-          @if (auth()->user()->level == "user")
+          @if (auth()->user()->level == "admin")
           <li>
             <a href="{{ url('pedagang') }}">
               <i class="nc-icon nc-bell-55"></i>
@@ -53,32 +55,52 @@
             </a>
           </li>
           @endif
-          @if (auth()->user()->level == "user")            
+          @if (auth()->user()->level == "user")
+          <li>
+            <a href="{{ url('absensi') }}">
+              <i class="nc-icon nc-bell-55"></i>
+              <p>Presensi Kehadiran</p>
+            </a>
+          </li>
+          @endif
+          {{-- @if (auth()->user()->level == "admin")            
             <li>
               <a href="{{ url('karyawan') }}">
                 <i class="nc-icon nc-bell-55"></i>
                 <p>Data Karyawan IPKL</p>
               </a>
             </li>
-          @endif
+          @endif --}}
+          @if (auth()->user()->level == "admin")
           <li>
             <a href="{{ url('wilayah') }}">
               <i class="nc-icon nc-bell-55"></i>
               <p>Penempatan Wilayah</p>
             </a>
           </li>
+          @endif
           {{-- <li>
             <a href="{{ url('pegawai') }}">
               <i class="nc-icon nc-bell-55"></i>
               <p>Data Pegawai</p>
             </a>
           </li> --}}
+          @if (auth()->user()->level == "admin")
           <li>
             <a href="{{ url('jabatan') }}">
               <i class="nc-icon nc-bell-55"></i>
               <p>Data Jabatan</p>
             </a>
           </li>
+          @endif
+          @if (auth()->user()->level == "admin")
+          <li>
+            <a href="{{ url('profile') }}">
+              <i class="nc-icon nc-bell-55"></i>
+              <p>Data Akun Profile</p>
+            </a>
+          </li>
+          @endif
           <li>
             <a href="{{ route('logout') }}"
             onclick="event.preventDefault();

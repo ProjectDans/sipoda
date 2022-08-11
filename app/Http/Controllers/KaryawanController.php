@@ -16,14 +16,14 @@ class KaryawanController extends Controller
      */
     public function index(Request $request)
     {
-        $keyword = $request->keyword;
+        // $keyword = $request->keyword;
         $datas = Karyawan::with('jabatan')->paginate(10);
         // $datas = Karyawan::with('jabatan')->where('nm_karyawan', 'LIKE', '%'.$keyword.'%')
         // ->orWhere('nik_karyawan', 'LIKE', '%'.$keyword.'%')
         // ->orWhere('jabatan_karyawan', 'LIKE', '%'.$keyword.'%')
         // ->paginate(4);
         return view('karyawan.index', compact(
-            'datas', 'keyword'
+            'datas'
         ));
     }
 

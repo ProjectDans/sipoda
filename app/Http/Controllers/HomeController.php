@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pedagang;
+use App\Models\User;
+use App\Models\Wilayah;
+use App\Models\Absensi;
 
 class HomeController extends Controller
 {
@@ -24,7 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $dtAbsensi = Absensi::all();
+        $dtPedagang = Pedagang::all();
+        $dtWilayah = Wilayah::count();
+        $dtProfile = User::count();
         $datas = Pedagang::count();
-        return view('home', compact('datas'));
+        return view('home', compact('datas', 'dtProfile', 'dtWilayah', 'dtPedagang', 'dtAbsensi'));
     }
 }

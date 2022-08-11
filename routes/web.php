@@ -7,6 +7,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\WilayahController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AbsensiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +32,12 @@ Route::resource('/karyawan', KaryawanController::class);
 Route::resource('/wilayah', WilayahController::class);
 Route::resource('/pegawai', PegawaiController::class);
 Route::resource('/jabatan', JabatanController::class);
+Route::resource('/profile', ProfileController::class);
+Route::resource('/absensi', AbsensiController::class);
 
 Auth::routes();
 
-Route::group(['middleware' => ['auth','ceklevel:admin']], function() {
+Route::group(['middleware' => ['auth','ceklevel:admin,user']], function() {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
+

@@ -14,7 +14,7 @@
 <br/>
 <form method="GET" action="{{ url('karyawan') }}">
   <div class="input-group">
-    <input type="text" name="keyword" value="{{ $keyword }}" class="form-control" placeholder="Search...">
+    <input type="text" name="keyword" value="" class="form-control" placeholder="Search...">
     <div class="input-group-append">
       <div class="input-group-text">
         <button class="btn btn-sm btn-grey" type="submit">Search</button>
