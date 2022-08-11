@@ -45,18 +45,22 @@
               <p>Dashboard</p>
             </a>
           </li>
+          @if (auth()->user()->level == "user")
           <li>
             <a href="{{ url('pedagang') }}">
               <i class="nc-icon nc-bell-55"></i>
               <p>Data Pedagang</p>
             </a>
           </li>
-          <li>
-            <a href="{{ url('karyawan') }}">
-              <i class="nc-icon nc-bell-55"></i>
-              <p>Data Karyawan IPKL</p>
-            </a>
-          </li>
+          @endif
+          @if (auth()->user()->level == "user")            
+            <li>
+              <a href="{{ url('karyawan') }}">
+                <i class="nc-icon nc-bell-55"></i>
+                <p>Data Karyawan IPKL</p>
+              </a>
+            </li>
+          @endif
           <li>
             <a href="{{ url('wilayah') }}">
               <i class="nc-icon nc-bell-55"></i>
